@@ -1,7 +1,16 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+clothing = Category.create!(name: 'Clothing')
+headwear = Category.create!(name: 'Head Wear')
+misc = Category.create!(name: 'Misc')
+
+hat = Product.create!(
+  name: 'Hat',
+  price: 7.99,
+  image_url: "/images/products/hat.jpg",
+  categories: [clothing, headwear])
+Product.create!(name: 'Hoodie', price: 21.99, image_url: "/images/products/hoodie.jpg")
+Product.create!(name: 'iPhone Case', price: 9.99, image_url: "/images/products/ihpone_case.jpg")
+Product.create!(name: 'Journal', price: 11.99, image_url: "/images/products/journal.jpg")
+Product.create!(name: 'Shirt', price: 15.99, image_url: "/images/products/shirt.jpg")
+Product.create!(name: 'Sticker', price: 2.99, image_url: "/images/products/sticker.jpg")
+
+puts "hat categories: #{hat.categories.map(&:name)}"
