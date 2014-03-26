@@ -1,0 +1,11 @@
+<table>
+  <h1>Product <%= @product.id %></h1>
+  <% %w[name price image_url].each do |attr| %>
+    <tr>
+      <th style="text-align: right"><%= attr.titleize %></th>'
+      <td style="text-align: left; padding-left: 20px"><%= @product.send(attr) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "Back to products", admin_products_path %>

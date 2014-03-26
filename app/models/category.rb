@@ -3,7 +3,7 @@ class Category < ActiveRecord::Base
   has_many :products, :through => :categorizations
 
   validates :name, presence: true
-  validate :make_sure_it_is_awesome
+  #validate :make_sure_it_is_awesome
 
   def make_sure_it_is_awesome
     unless name == 'awesome'
@@ -11,5 +11,3 @@ class Category < ActiveRecord::Base
     end
   end
 end
-
-/\A\d{15,}\z/
