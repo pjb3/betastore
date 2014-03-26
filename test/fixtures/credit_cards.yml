@@ -1,0 +1,4 @@
+paul_visa:
+  customer: paul
+  card_number: 4111111111111111
+  expiration_date: 01/<%= Time.now.year + 1 %>

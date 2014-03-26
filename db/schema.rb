@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20140319011738) do
   create_table "credit_cards", force: true do |t|
     t.integer  "customer_id"
     t.string   "card_number"
-    t.date     "expires_on"
+    t.string   "expiration_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -63,12 +63,14 @@ ActiveRecord::Schema.define(version: 20140319011738) do
 
   create_table "orders", force: true do |t|
     t.integer  "customer_id"
+    t.integer  "credit_card_id"
     t.datetime "placed_at"
     t.decimal  "total_amount"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "orders", ["credit_card_id"], name: "index_orders_on_credit_card_id", using: :btree
   add_index "orders", ["customer_id"], name: "index_orders_on_customer_id", using: :btree
 
   create_table "products", force: true do |t|

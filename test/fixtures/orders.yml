@@ -1,6 +1,12 @@
 cheap:
+  customer: paul
+  credit_card: paul_visa
   total_amount: 4
 expensive:
+  customer: paul
+  credit_card: paul_visa
   total_amount: 38
 free:
+  customer: paul
+  credit_card: paul_visa
   total_amount: 0
