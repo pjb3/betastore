@@ -1,3 +1,6 @@
 paul:
   name: Paul
   email: mail@paulbarry.com
+test:
+  name: Test
+  email: test@gmail.com

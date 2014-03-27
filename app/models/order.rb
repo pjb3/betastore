@@ -9,7 +9,7 @@ class Order < ActiveRecord::Base
   def credit_card_belongs_to_customer
     if customer_id && credit_card_id
       unless customer_id == credit_card.customer_id
-        errors.add(:credit_card_id, "does not belongs to this customer")
+        errors.add(:credit_card_id, "does not belong to this customer")
       end
     end
   end
