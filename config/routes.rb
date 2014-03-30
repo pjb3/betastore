@@ -1,11 +1,10 @@
 Betastore::Application.routes.draw do
 
   namespace :admin do
-     get '/products'     => 'products#index', as: 'products'
-     get '/products/:id' => 'products#show', as: 'product'
+    resources :products
   end
 
-  # resources :subscriptions
+  resources :subscriptions
   get '/products' => 'products#index', as: 'products'
 
   root :to => 'subscriptions#new'
