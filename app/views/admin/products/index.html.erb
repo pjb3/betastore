@@ -14,7 +14,7 @@
   <% for product in @products %>
     <tr>
       <td><%= link_to product.id, admin_product_path(product) %></td>
-      <td><%= product.name %></td>
+      <td><%= link_to product.name, admin_product_path(product) %></td>
       <td><%= product.price %></td>
       <td><%= product.created_at %></td>
     </tr>
