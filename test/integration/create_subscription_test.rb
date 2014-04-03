@@ -6,6 +6,7 @@ class CreateSubscriptionTest < ActionDispatch::IntegrationTest
     visit "/"
     click_on "Fail"
     fill_in "Find out when we go live", with: 'test@example.com'
+    # asdkfsldfjsdklfjsdfkjds
     click_on "Sign Up"
     assert page.has_content?('Subscription was successfully created.')
     assert_equal 'test@example.com', Subscription.last.email

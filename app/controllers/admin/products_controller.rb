@@ -5,7 +5,11 @@ class Admin::ProductsController < ApplicationController
   layout 'admin'
 
   def index
-    @products = Product.order('name')
+    if logged_in?
+      @products = Product.order('name')
+    else
+      redirect_to admin_login_path, alert: 'Please log in to continue'
+    end
   end
 
   def show
@@ -63,5 +67,9 @@ protected
     unless logged_in?
       redirect_to admin_login_path, danger: 'Please log in to continue'
     end
+  end
+
+  def logged_in?
+    false
   end
 end
