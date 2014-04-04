@@ -1,12 +1,24 @@
 <%= render 'shared/errors', object: @product %>
 
-<%= form_for [:admin, @product] do |f| %>
+<%= form_for [:admin, @product], html: { class: 'form-horizontal', role: 'form' } do |f| %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label :name, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+  </div>
 
-  <%= f.label :price %>
-  <%= f.text_field :price %>
+  <div class="form-group">
+    <%= f.label :price, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :price, class: 'form-control' %>
+    </div>
+  </div>
 
-  <%= f.submit "Save" %>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-4">
+      <%= f.submit "Save", class: 'btn btn-success' %>
+    </div>
+  </div>
 <% end %>

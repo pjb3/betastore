@@ -10,6 +10,7 @@ class AdminProductsTest < ActionDispatch::IntegrationTest
     fill_in "Price", with: "9.99"
     click_on "Save"
 
+    assert page.has_content?(/Product.*was created/)
     click_on "Awesome"
     assert page.has_content?('9.99')
     click_on "Edit"

@@ -1,5 +1,7 @@
 class Admin::ProductsController < ApplicationController
 
+  layout 'admin'
+
   def index
     @products = Product.order('name')
   end
