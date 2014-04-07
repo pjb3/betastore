@@ -52,7 +52,7 @@ class Admin::ProductsController < ApplicationController
 
 protected
   def product_params
-    params.require(:product).permit!
+    params.require(:product).permit(:name, :price)
   end
 
   def logged_in?
