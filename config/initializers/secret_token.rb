@@ -9,4 +9,8 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Betastore::Application.config.secret_key_base = '8638ff3d2b1944a484d70b996b13bc3079d1ad85b3fcb7b797b04a482ac44eeeaaf0927786eef21b62a3b1fdda17786c6b8d07bfa6d53012731df6f8242d6cbb'
+Betastore::Application.config.secret_key_base = if Rails.env.production?
+  ENV['SECRET_TOKEN']
+else
+  'X'*30
+end
