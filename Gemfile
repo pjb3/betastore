@@ -20,3 +20,7 @@ group :test do
   gem 'launchy'
   gem 'minitest-colorize'
 end
+
+group :production do
+  gem 'rails_12factor'
+end
