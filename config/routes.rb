@@ -1,5 +1,7 @@
 Betastore::Application.routes.draw do
 
+  get '/fail' => 'fail#fail'
+
   namespace :admin do
     resources :products
     get  '/login' => 'logins#new', as: 'logins'
