@@ -69,7 +69,4 @@ protected
     end
   end
 
-  def logged_in?
-    false
-  end
 end

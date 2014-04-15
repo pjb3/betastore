@@ -3,7 +3,10 @@ require 'test_helper'
 
 class AdminProductsTest < ActionDispatch::IntegrationTest
   def test_manage
-    visit "/admin/products"
+    visit "/admin/login"
+    fill_in "Email", with: 'admin@example.com'
+    fill_in "Password", with: 'test'
+    click_on "Log In"
 
     click_on "New Product"
     fill_in "Name", with: "Awesome"
