@@ -1,5 +1,10 @@
 Betastore::Application.routes.draw do
 
+  get  '/sign_up' => 'customers#new', as: 'sign_up'
+  post '/sign_up' => 'customers#create'
+
+  get  '/verify/:token' => 'customers#verify', as: 'verify_customer'
+
   get '/fail' => 'fail#fail'
 
   namespace :admin do
