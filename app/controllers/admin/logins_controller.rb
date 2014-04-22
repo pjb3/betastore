@@ -1,5 +1,5 @@
-class Admin::LoginsController < ApplicationController
-  layout 'admin'
+class Admin::LoginsController < Admin::BaseController
+  skip_before_action :require_login
 
   def create
     user = User.find_by(email: params[:email])

@@ -1,3 +1,15 @@
+<p>
+  <% if logged_in? %>
+    Welcome, <%= current_customer.name %>
+    |
+    <%= link_to "Log Out", "#TODO" %>
+  <% else %>
+    <%= link_to "Log In", "#TODO" %>
+    |
+    <%= link_to "Sign Up", sign_up_path %>
+  <% end %>
+</p>
+
 <h1>This is a list of products</h1>
 <ul>
   <% for product in @products %>

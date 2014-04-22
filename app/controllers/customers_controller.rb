@@ -18,7 +18,7 @@ class CustomersController < ApplicationController
     customer = Customer.verify(params[:token])
 
     if customer
-      # TODO: set_current_customer(customer)
+      set_current_customer(customer)
       redirect_to root_path, notice: 'Your account is confirmed'
     else
       redirect_to root_path, alert: 'The verification link is invalid'

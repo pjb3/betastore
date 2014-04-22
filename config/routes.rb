@@ -16,6 +16,6 @@ Betastore::Application.routes.draw do
   resources :subscriptions
   get '/products' => 'products#index', as: 'products'
 
-  root :to => 'subscriptions#new'
+  root 'products#index'
 
 end
