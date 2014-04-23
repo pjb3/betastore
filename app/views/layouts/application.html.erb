@@ -2,13 +2,34 @@
 <html>
 <head>
   <title>Betastore</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div style="margin: 0 auto; text-align: center">
-    <%= image_tag "logo.jpg", width: 600 %>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <%= image_tag 'icon.png', height: 20 %>
+        </a>
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <% if logged_in? %>
+          <li><%= link_to current_customer.name, "#TODO" %></li>
+          <li><%= link_to "Log Out", "#TODO" %></li>
+        <% else %>
+          <li><%= link_to "Log In", "#TODO" %></li>
+          <li><%= link_to "Sign Up", sign_up_path %></li>
+        <% end %>
+      </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+  <div class="container-fluid">
     <%= render 'layouts/flash' %>
     <%= yield %>
   </div>
