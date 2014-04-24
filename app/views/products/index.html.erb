@@ -9,7 +9,7 @@
 
 <% for product in @products %>
   <div class="col-sm-4">
-    <%= link_to '#TODO' do %>
+    <%= link_to product do %>
       <%= image_tag product.image_url, width: 200 %>
       <br/>
       <%= product.name %>
