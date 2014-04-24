@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 
 ruby "2.1.1"
 
@@ -9,6 +10,7 @@ gem 'jquery-rails'
 gem 'pg'
 gem 'puma'
 gem 'rails', '4.1.0'
+gem 'rails-assets-bootstrap'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 
@@ -16,6 +18,7 @@ group :development do
   gem 'brakeman', require: false
   gem 'faker'
   gem 'hirb'
+  gem 'quiet_assets'
   gem 'spring'
 end
 

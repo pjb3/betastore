@@ -4,4 +4,6 @@ class Product < ActiveRecord::Base
 
   validates :name, presence: true
   validates :price, presence: true, numericality: { greater_than: 0, allow_blank: true }
+
+  scope :search, -> (q) { where('name like ?', "%#{q}%") }
 end
