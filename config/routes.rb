@@ -14,8 +14,8 @@ Betastore::Application.routes.draw do
   end
 
   resources :subscriptions
-  get '/products'    => 'products#index', as: 'products'
-  get '/product/:id' => 'products#show',  as: 'product'
+  get '/products'     => 'products#index', as: 'products'
+  get '/products/:id' => 'products#show',  as: 'product'
 
   root 'products#index'
 
