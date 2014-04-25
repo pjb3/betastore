@@ -18,6 +18,7 @@ group :development do
   gem 'brakeman', require: false
   gem 'faker'
   gem 'hirb'
+  gem 'pry'
   gem 'quiet_assets'
   gem 'spring'
 end
