@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+  skip_before_action :require_login
 
   def create
     add_to_cart(params[:product_id])

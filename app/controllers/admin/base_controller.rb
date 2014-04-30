@@ -1,6 +1,4 @@
 class Admin::BaseController < ApplicationController
-  before_action :require_login
-
   layout 'admin'
 
   def logged_in?

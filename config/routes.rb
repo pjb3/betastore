@@ -1,5 +1,9 @@
 Betastore::Application.routes.draw do
 
+  get    '/log_in' => 'log_ins#new',     as: 'log_in'
+  post   '/log_in' => 'log_ins#create'
+  delete '/log_in' => 'log_ins#destroy', as: 'log_out'
+
   get  '/sign_up' => 'customers#new', as: 'sign_up'
   post '/sign_up' => 'customers#create'
 

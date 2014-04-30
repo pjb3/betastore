@@ -1,4 +1,5 @@
 class CustomersController < ApplicationController
+  skip_before_action :require_login
 
   def new
     @customer = Customer.new
