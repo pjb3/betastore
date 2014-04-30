@@ -7,5 +7,8 @@
 </p>
 
 <p>
-  <%= link_to "BUY NOW!", "#TODO", class: 'btn btn-success' %>
+  <%= button_to add_product_to_cart_path(@product), class: 'btn btn-success' do %>
+    <span class="glyphicon glyphicon-shopping-cart"></span>
+    Add To Cart
+  <% end %>
 </p>

@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.order('name').limit(100)
+    @products = Product.order('name').limit(50)
 
     for param in %i[search min_price max_price]
       if params[param].present?

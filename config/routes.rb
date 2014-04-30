@@ -14,8 +14,14 @@ Betastore::Application.routes.draw do
   end
 
   resources :subscriptions
+
   get '/products'     => 'products#index', as: 'products'
   get '/products/:id' => 'products#show',  as: 'product'
+
+  post '/products/:product_id/add_to_cart' => 'carts#create',
+    as: 'add_product_to_cart'
+
+  resource :cart
 
   root 'products#index'
 

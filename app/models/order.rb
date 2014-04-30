@@ -6,6 +6,26 @@ class Order < ActiveRecord::Base
   validates :customer_id, :credit_card_id, presence: true
   validate :credit_card_belongs_to_customer
 
+  def self.from_cart(cart)
+    order = new
+    cart.each do |product_id, quantity|
+      order.line_items.build(
+        product_id: product_id,
+        quantity: quantity
+      )
+    end
+    order.calculate_totals
+    order
+  end
+
+  def calculate_totals
+    self.total_amount = line_items.inject(0) do |sum, li|
+      li.set_unit_price
+      sum + li.total_price
+    end
+  end
+
+
   def credit_card_belongs_to_customer
     if customer_id && credit_card_id
       unless customer_id == credit_card.customer_id
@@ -13,13 +33,6 @@ class Order < ActiveRecord::Base
       end
     end
   end
-
-  # def calculate_total_amount
-  #   self.total_amount = line_items.inject(0) do |sum, li|
-  #     sum + li.total_price
-  #   end
-  #   save
-  # end
 
   def increment_total_amount(amount)
     update(total_amount: (total_amount || 0) + amount)

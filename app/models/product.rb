@@ -11,4 +11,7 @@ class Product < ActiveRecord::Base
   scope :min_price, -> (price) { where('price >= ?', price) }
   scope :max_price, -> (price) { where('price <= ?', price) }
 
+  def to_param
+    "#{id}-#{name.parameterize}"
+  end
 end
