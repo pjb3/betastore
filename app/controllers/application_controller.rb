@@ -36,7 +36,7 @@ protected
     path || root_path
   end
 
-  def cart
+  helper_method def cart
     session[:cart] ||= Hash.new(0)
   end
 end

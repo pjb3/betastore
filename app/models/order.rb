@@ -1,10 +1,13 @@
 class Order < ActiveRecord::Base
   belongs_to :customer
-  belongs_to :credit_card
-  has_many :line_items
+  belongs_to :credit_card, inverse_of: :orders
+  has_many :line_items, inverse_of: :order
 
-  validates :customer_id, :credit_card_id, presence: true
+  validates :customer_id, :credit_card, presence: true
   validate :credit_card_belongs_to_customer
+
+  accepts_nested_attributes_for :credit_card
+  accepts_nested_attributes_for :line_items
 
   def self.from_cart(cart)
     order = new
@@ -24,7 +27,6 @@ class Order < ActiveRecord::Base
       sum + li.total_price
     end
   end
-
 
   def credit_card_belongs_to_customer
     if customer_id && credit_card_id

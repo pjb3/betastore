@@ -1,5 +1,6 @@
 class CreditCard < ActiveRecord::Base
   belongs_to :customer
+  has_many :orders, inverse_of: :credit_card
 
   before_validation :normalize_card_number
 
