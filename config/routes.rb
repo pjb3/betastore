@@ -22,6 +22,7 @@ Betastore::Application.routes.draw do
     as: 'add_product_to_cart'
 
   resource :cart
+  resources :orders
 
   root 'products#index'
 

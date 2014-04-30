@@ -1,4 +1,4 @@
-<h1>Your Cart</h1>
+<h1>Checkout</h1>
 
 <table class="table">
   <tr>
@@ -21,6 +21,13 @@
   </tr>
 </table>
 
-<p>
-  <%= link_to "Checkout", new_order_path, class: 'btn btn-success' %>
-</p>
+<% @order.errors.full_messages.each do |error| %>
+  <div class="alert alert-danger">
+    <%= error %>
+  </div>
+<% end %>
+
+<%= form_for @order do |f| %>
+  <%= f.hidden_field :customer_id %>
+  <%= f.submit "Place Order", class: 'btn btn-success' %>
+<% end %>

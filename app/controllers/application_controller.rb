@@ -19,4 +19,8 @@ protected
   def set_current_customer(customer=nil)
     session[:customer_id] = customer.try(:id)
   end
+
+  def cart
+    session[:cart] ||= Hash.new(0)
+  end
 end
