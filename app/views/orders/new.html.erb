@@ -1,7 +1,5 @@
 <h1>Checkout</h1>
 
-<%= render 'orders/order' %>
-
 <% @order.errors.full_messages.each do |error| %>
   <div class="alert alert-danger">
     <%= error %>
@@ -10,7 +8,29 @@
 
 <%= form_for(@order, html: { class: 'form-horizontal', role: 'form'}) do |f| %>
 
-  <%= f.fields_for :credit_card_attributes, @order.credit_card do |cc| %>
+  <table class="table">
+    <tr>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Unit Price</th>
+      <th>Total Price</th>
+    </tr>
+    <%= f.fields_for :line_items do |li| %>
+      <%= li.hidden_field :product_id %>
+      <tr>
+        <td><%= li.object.product.name %></td>
+        <td><%= li.number_field :quantity, style: 'width: 50px' %></td>
+        <td><%= number_to_currency li.object.product.price %></td>
+        <td><%= number_to_currency li.object.total_price %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td colspan="3"></td>
+      <td><%= number_to_currency @order.total_amount %></td>
+    </tr>
+  </table>
+
+  <%= f.fields_for :credit_card do |cc| %>
     <div class="form-group">
       <%= cc.label :card_number, class: 'col-sm-2 control-label' %>
       <div class="col-sm-4">
