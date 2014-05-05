@@ -4,6 +4,7 @@ source 'https://rails-assets.org'
 ruby "2.1.1"
 
 gem 'bcrypt', '~> 3.1.7'
+gem 'braintree'
 gem 'bugsnag'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'

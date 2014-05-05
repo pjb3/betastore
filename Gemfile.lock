@@ -31,6 +31,8 @@ GEM
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
+    braintree (2.30.0)
+      builder (>= 2.0.0)
     brakeman (2.4.3)
       erubis (~> 2.6)
       fastercsv (~> 1.5)
@@ -179,6 +181,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
+  braintree
   brakeman
   bugsnag
   capybara

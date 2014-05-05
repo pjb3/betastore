@@ -27,6 +27,14 @@ class CreditCard < ActiveRecord::Base
     @expires_on ||= Date.strptime(expiration_date, '%m/%Y') + 1.month
   end
 
+  def expiration_month
+    expiration_date.split('/').first
+  end
+
+  def expiration_year
+    expiration_date.split('/').last
+  end
+
   def validate_expiration_date
     if expiration_date.blank?
       errors.add(:expiration_date, 'is required')
