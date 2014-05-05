@@ -1,5 +1,8 @@
 Betastore::Application.routes.draw do
 
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+
   get    '/log_in' => 'log_ins#new',     as: 'log_in'
   post   '/log_in' => 'log_ins#create'
   delete '/log_in' => 'log_ins#destroy', as: 'log_out'

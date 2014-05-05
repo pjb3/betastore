@@ -56,30 +56,7 @@ class Order < ActiveRecord::Base
   end
 
   def charge
-    result = Braintree::Transaction.sale(
-      :amount => total_amount,
-      :credit_card => {
-        :number => credit_card.card_number,
-        :expiration_month => credit_card.expiration_month,
-        :expiration_year => credit_card.expiration_year
-      }
-    )
-
-    if result.success?
-      logger.info "Transaction ID: #{result.transaction.id}"
-      # status will be authorized or submitted_for_settlement
-      logger.info "Transaction Status: #{result.transaction.status}"
-    else
-      logger.error "Message: #{result.message}"
-      if result.transaction.nil?
-        # validation errors prevented transaction from being created
-        logger.error "Errors: #{result.errors.inspect}"
-      else
-        logger.error "Transaction ID: #{result.transaction.id}"
-        # status will be processor_declined, gateway_rejected, or failed
-        logger.error "Transaction Status: #{result.transaction.status}"
-      end
-    end
+    OrderChargeWorker.perform_async(id)
   end
 
 end
