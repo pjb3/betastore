@@ -185,6 +185,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   faker
   hirb
+  httparty
   jquery-rails
   launchy
   pg
